@@ -10,13 +10,17 @@
  *
  * Main module of the application.
  */
-var app = angular.module('angNewsApp', ['ngCookies','ngResource','ngRoute','ngSanitize',]);
+var app = angular.module('angNewsApp', ['ngCookies','ngResource','ngRoute','ngSanitize','firebase']);
 
 app.config(function ($routeProvider) {
 	$routeProvider 
 		.when('/', {
 			templateUrl: 'views/posts.html',
 			controller: 'PostsCtrl'
+		})
+		.when('/posts/:postId',{
+			templateUrl: 'views/showpost.html',
+			controller: 'PostViewCtrl'
 		})
 		.when('/about', {
 			templateUrl: 'views/about.html',
@@ -26,3 +30,5 @@ app.config(function ($routeProvider) {
 			redirectTo: '/'
 		});
 });
+
+app.constant('FIREBASE_URL','https://fiery-heat-4853.firebaseio.com/');
