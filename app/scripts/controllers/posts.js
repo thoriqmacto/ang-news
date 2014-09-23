@@ -2,7 +2,7 @@
 
 (function(){
 	// Posts controller
-	app.controller('PostsCtrl', function($scope,$location,Post){
+	app.controller('PostsCtrl', function($scope,$location,$routeParams,Post){
 		$scope.posts = Post.all;
 		$scope.post = { url: 'http://' };
 		
